@@ -8,6 +8,6 @@ from .models import AnouncementPost
 @receiver(post_save,sender = AnouncementPost)
 def post_signal_reciever(sender,created,instance,**kwargs):
    
-    send_push_message("ExponentPushToken[PaFF8BNasHJppMe9Bc4Bk1]",f"{instance.title}hellowfrom expo","this si the message")
+    send_push_message(f"{instance.title}",instance.description)
     print('hellow wome thid alkdfjlsdkfj')
 

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'Post',
+    'calender'
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -56,6 +57,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.137.112:8081",
     "http://192.168.137.112:8081",
     "http://192.168.137.66:8081",
+    "http://192.168.137.1:8081",
     "http://192.168.137.163:8081",
 ]
 
@@ -136,7 +138,8 @@ SIMPLE_JWT = {
 DJOSER = {
      'SERIALIZERS': {
         'user_create': 'core.serializer.CustomSerializer',
-        'user':'core.serializer.UserSerializer'
+        'user':'core.serializer.UserSerializer',
+        'current_user': 'core.serializer.CurrentUserSerializer',
     },
 }
 

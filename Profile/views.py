@@ -3,14 +3,14 @@ from rest_framework.viewsets import ModelViewSet
 from  .models import Profile,Group,StudentMajor,PhoneNumber
 from .customPermition import creatorOrReadOnly
 from  Messages.customPermition import isAdminOrReadOnly
-from .serializer import ProfileSerializer,GroupSerializer,StudentMajorSerializer,PhoneNumberSerialier
+from .serializer import ProfileSerializer,GroupSerializer,StudentMajorSerializer,PhoneNumberSerialier,PostProfileSerialier
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter,OrderingFilter
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 class ProfileViewSet(ModelViewSet):
     queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
+    serializer_class = PostProfileSerialier
     filter_backends = [DjangoFilterBackend,SearchFilter,OrderingFilter]
     filterset_fields = ['acadamic_year','group']
     ordering_fields = ['id','date','major']

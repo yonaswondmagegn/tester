@@ -10,3 +10,4 @@ class User(AbstractUser):
         # self._meta.get_field('').null = True
 
     phonenumber = models.CharField(max_length=9)
+    deviceToken = models.TextField(null = True,blank = True)

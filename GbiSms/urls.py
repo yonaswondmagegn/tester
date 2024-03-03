@@ -24,6 +24,7 @@ urlpatterns = [
     path('',include("Profile.urls")),
     path('',include("Messages.urls")),
     path('',include('Post.urls')),
+    path('',include('calender.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
 ]
