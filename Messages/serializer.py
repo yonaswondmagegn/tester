@@ -9,8 +9,12 @@ class MassSmsSerializer(ModelSerializer):
         
 
 class AnouncementPostSerializer(ModelSerializer):
-    user = PostProfileSerialier()
-
     class Meta:
         model = AnouncementPost
         fields = "__all__"
+
+    def to_representation(self,instance):
+        if self.context['request'].method != 'POST':
+            self.fields['user'] = PostProfileSerialier()
+
+        return super().to_representation(instance)

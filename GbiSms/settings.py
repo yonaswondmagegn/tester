@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework_simplejwt',
     'core',
     'Profile',
     'Messages',
@@ -59,6 +60,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.137.66:8081",
     "http://192.168.137.1:8081",
     "http://192.168.137.163:8081",
+    "http://192.168.90.14:8081",
 ]
 
 MIDDLEWARE = [
@@ -132,10 +134,15 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('JWT',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
+    "TOKEN_OBTAIN_SERIALIZER": "core.serializer.TokenObtainPairSerializer",
+   'ACCESS_TOKEN_LIFETIME': timedelta(days=1000),
+   'REFRESH_TOKEN_LIFETIME':timedelta(days=10000)
   
 }
+
+
 DJOSER = {
+    'LOGIN_FIELD':'phonenumber',
      'SERIALIZERS': {
         'user_create': 'core.serializer.CustomSerializer',
         'user':'core.serializer.UserSerializer',

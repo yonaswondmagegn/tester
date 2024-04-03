@@ -12,9 +12,9 @@ class ProfileViewSet(ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = PostProfileSerialier
     filter_backends = [DjangoFilterBackend,SearchFilter,OrderingFilter]
-    filterset_fields = ['acadamic_year','group']
+    filterset_fields = ['acadamic_year','group','user']
     ordering_fields = ['id','date','major']
-    permission_classes = [creatorOrReadOnly]
+    # permission_classes = [creatorOrReadOnly]
 
 
 class GroupViewSet(ModelViewSet):
